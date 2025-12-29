@@ -1,18 +1,14 @@
-from people import customer
-from people import cinema_staff
-import bar
-
-
-
-class CinemaHall():
+class CinemaHall:
     def __init__(self, hall_number: int):
         self.hall_number = hall_number
-        self.movie_name = None
 
-    def movie_session(movie_name: str, customer: list, cleaning_staff: str):
-        self.movie_name = movie_name
-        watch = customer.Customer(customer)
-        watch.watch_movie()
-        cleaning_staff = cinema_staff.Cleaner(cleaning_staff)
-        cleaning_staff.clean_hall(self.hall_number)
+    def movie_session(self, movie: str, customers: list, cleaner):
+        print(f'"{movie}" started in hall number {self.hall_number}.')
+
+        for customer in customers:
+            customer.watch_movie(movie)
+
+        print(f'"{movie}" ended.')
+
+        cleaner.clean_hall(self.hall_number)
 
