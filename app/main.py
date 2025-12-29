@@ -1,7 +1,7 @@
 from app.people.customer import Customer
-from app.cinema.cinema_hall import CinemaHall
-from app.cinema.cinema_bar import CinemaBar
-from app.staff.cleaner import Cleaner
+from app.cinema.hall import CinemaHall
+from app.cinema.bar import CinemaBar
+from app.people.cinema_staff import Cleaner
 
 
 
@@ -10,7 +10,7 @@ def cinema_visit(movie, customers, hall_number, cleaner):
     customer_objects = []
 
     for data in customers:
-        customer = Customer(data["name"])
+        customer = Customer(data["name"], data["food"])
         customer_objects.append(customer)
         CinemaBar.sell_product(customer, data["food"])
 
